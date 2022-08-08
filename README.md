@@ -10,7 +10,7 @@ SharePoint’e ait özelliklerden bir tanesi olan REST Api alt yapısını kulla
 - Federation Auth  
 
 Bu seçeneklerin her biri tek başına ihtiyacı karşılamamaktadır. Bu yüzden bu dokümanında atlattığı gibi bu seçenklerin bir kombinasyonu ile ihtiyacımız olan erişim seçeneğine ulaşmış olacağız.  
-Yapılan kurguda iki farklı token mekanizması bulunmaktadır. Birinci ADFS tarafında yönetilen Access Token süreci diğeri ise SharePoint içerisinde yönetilen OAuth2 Access Token sürecidir. 
+Yapılan kurguda iki farklı token mekanizması bulunmaktadır. Birinci ADFS tarafında yönetilen Access Token süreci diğeri ise SharePoint içerisinde yönetilen high-trust SharePoint Add-ins (https://github.com/SharePoint/sp-dev-docs/blob/main/docs/sp-add-ins/create-high-trust-sharepoint-add-ins.md) sürecidir. 
 
 [![N|Solid](http://www.serkan-kurt.com.tr/blog/wp-content/uploads/2022/08/sptokenchange.png)]
 
@@ -19,7 +19,7 @@ Söz konusu çalışmayı sağlayabilmek için bir HTTP Module oluşturulmuştur
 - ADFS üzerinden kullanıcı girişi yapılarak bir Access Token elde edilir. 
 - SharePoint rest isteklerinde yetkilendirme başlığı içerisine bu token eklenir. 
 - HTTP Module bu tokeni yakalayarak ADFS üzerinden doğrulamasını gerçekleştirir.  
-- HTTP Module tarafından doğrulanan token içerisindeki UPN adresi çözümlenir ve bu UPN ile SharePoint oAuth2 model kullanılarak yeni bir access token oluşturulur. 
+- HTTP Module tarafından doğrulanan token içerisindeki UPN adresi çözümlenir ve bu UPN ile SharePoint high-trust SharePoint Add-ins model kullanılarak yeni bir access token oluşturulur. 
 - Oluşturulan Access token yapılan Rest isteğinin yetkilendirme başlığına eklenerek süreç tamamlanır.  
 
 ## ADFS
@@ -223,4 +223,9 @@ Parametre Açıklamaları:
     - SharePoint Konfigürasyonları adımında kullanılan sertifikaya ait PFX dosyasının path bilgisi
 - Certificate Password
     - SharePoint Konfigürasyonları adımında kullanılan sertifikaya ait şifre
+
+## Kullanım
+
+Yapılan tüm REST isteklerinde Header içerisine ChangeToken=True olarak parametre eklenmelidir.
+
 
