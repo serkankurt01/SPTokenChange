@@ -169,3 +169,51 @@ Parametre Açıklamaları
     </AppPermissionRequests>
 
     ```
+“Create” butonuna tıkladıktan sonra çıkan ektanda bulunan “Trust It” butonuna tıklanmalıdır. 
+
+
+### SPTokenChange Konfigürasyonları
+
+Tüm powershell scriptleri çalıştırıldıktan sonra repoda bulunan SharePoint projesi indirilerek WSP paketi oluşturulur.  Daha sonra ilgili wsp paketi farma deploy edilir.  
+
+Deploy işlemi tamamlandıktan sonra Central Administration -> Security altında “Juno Token Change” isminde yeni bir menu oluşacaktır. “Setup” linkine tıklayarak ilgili konfigürasyon ekranlarına ulaşılır.
+
+Açılan sayfada üst bölümde bulunan web application seçim ekranından kullanılacak olan web application seçilir ve “Deploy” butonuna tıklanır.  Tıklama sonrası “Installede Applications” altında ki listeye ilgili web application eklenir. 
+
+ Buradaki içerikler yukarıda çalıştırılan scriptler sonucu not alınan parametrelere göre doldurulurak Save butonuna tıklanır. 
+ 
+Parametre Açıklamaları:
+
+- User Profile Type
+    - SharePoint tarafında ilgili kullanıcıyı bulmak için kullanılmaktadır.  Eğer Web sitesine ADFS veya Azure ile giriş yapılacaksa burada “Trusted Provider” seçeneği seçilmelidir.  Eğer web tarafı için herhangi bir trust işlemi yapılmayacaksa veya web tarafı Web Application Proxy ile trust edilecekse burada Windows seçeneği seçilmelidir. 
+- Auth Type
+    - Mobil uygulamanın kullandığı Auth Library tipi.
+- JWT Token LifeTime Check
+    - Gönderilen JWT token için süre validasyonu yapılıp yapılmayacağını belirler. Debug işlemleri için eklenmiştir. 
+- Debug Mode
+    - Debug işlemleri için eklenmiştir. Süreç içerisinde fazladan log kayıtları oluşturur. 
+- Active
+    - Debug işlemleri için eklenmiştir. IIS Module devreye girip girmeyeceğini belirler.
+- Audience
+    - ADFS Konfigürasyonları sonuçu ekranda oluşan bilgilendirme notları içerisindeki “Audience” seçeneği yazılmalıdır.  Bu değer aynı zamanda gönderilen JWT token içerisindeki “aud” değeri ile aynı olmalıdır. 
+- Issuer
+    - ADFS Konfigürasyonları sonuçu ekranda oluşan bilgilendirme notları içerisindeki “Issuer” seçeneği yazılmalıdır.  Bu değer aynı zamanda gönderilen JWT token içerisindeki “iss” değeri ile aynı olmalıdır. 
+- STS Discovery EndPoint
+    - JWT token oluşturan sağlayıcıya ait Discovery Endpoint adresi. ADFS Konfigürasyonları sonuçu ekranda oluşan bilgilendirme notları içerisindeki “STS Discovery Endpoint” seçeneği yazılmalıdır. 
+
+- SP Client Id
+    - SharePoint Konfigürasyonları sonuçu ekranda oluşan bilgilendirme notları içerisindeki “SP Client ID” seçeneği yazılmalıdır.  
+- SP Issuer Id
+    - SharePoint Konfigürasyonları sonuçu ekranda oluşan bilgilendirme notları içerisindeki “SP Issuer ID” seçeneği yazılmalıdır.  
+- SP Realm
+    - SharePoint Konfigürasyonları sonuçu ekranda oluşan bilgilendirme notları içerisindeki “SP Realm” seçeneği yazılmalıdır.  
+
+- Auth Provider Name
+    - Web tarafına ADFS ile giriş yapılacak ise “trusted:LDAPCP”,
+    - Web tarafında Azure ile giriş yapılacak ise “trusted:AzureCP”
+    - Web tarafına NTML ile giriş yapılacak ise boş bırakılmalıdır. 
+- Certifiate Path
+    - SharePoint Konfigürasyonları adımında kullanılan sertifikaya ait PFX dosyasının path bilgisi
+- Certificate Password
+    - SharePoint Konfigürasyonları adımında kullanılan sertifikaya ait şifre
+
