@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="1904da9a-617b-4ddf-bd36-5b50651b6013" solutionId="1904da9a-617b-4ddf-bd36-5b50651b6013" resetWebServer="false" sharePointProductVersion="19.0" name="Juno.OnPrem.Auth.SPTokenChange" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="Juno.OnPrem.Auth.SPTokenChangeModule.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\..\IIS\Juno.OnPrem.Auth.SPTokenChangeModule\Juno.OnPrem.Auth.SPTokenChangeModule.csproj" />
+    <projectOutputAssembly location="Juno.OnPrem.Auth.Common.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\..\Common\Juno.OnPrem.Auth.Common\Juno.OnPrem.Auth.Common.csproj" />
+    <customAssembly location="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" />
+    <customAssembly location="Microsoft.IdentityModel.Tokens.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\Microsoft.IdentityModel.Tokens.dll" />
+    <customAssembly location="Microsoft.IdentityModel.Extensions.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\Microsoft.IdentityModel.Extensions.dll" />
+    <customAssembly location="Microsoft.IdentityModel.JsonWebTokens.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <customAssembly location="System.IdentityModel.Tokens.Jwt.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\System.IdentityModel.Tokens.Jwt.dll" />
+    <customAssembly location="Microsoft.IdentityModel.Protocols.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\Microsoft.IdentityModel.Protocols.dll" />
+    <customAssembly location="Microsoft.IdentityModel.Logging.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="bin\Debug\Microsoft.IdentityModel.Logging.dll" />
+  </assemblies>
+  <features>
+    <featureReference itemId="ac841706-2ce8-4414-8035-0360d249f474" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="ca97451d-42b9-4e7f-b1da-a2611010707c" />
+  </projectItems>
+</package>

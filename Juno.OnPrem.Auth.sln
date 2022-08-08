@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SP", "SP", "{F595ABBE-2189-4740-9C5A-DAB0AF5C6719}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IIS", "IIS", "{E8B5380E-DAA6-4926-8573-9B47B20B79BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juno.OnPrem.Auth.SPTokenChangeModule", "IIS\Juno.OnPrem.Auth.SPTokenChangeModule\Juno.OnPrem.Auth.SPTokenChangeModule.csproj", "{9B834ECE-57EC-4261-A88A-4AABFD67C3BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juno.OnPrem.Auth.SPTokenChange", "SP\Juno.OnPrem.Auth.SPTokenChange\Juno.OnPrem.Auth.SPTokenChange.csproj", "{3190BBCB-1AC0-4AC5-9C9B-64575E60468C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9E5D8A8D-F1A3-483E-B3D9-25F40538EF46} = {9E5D8A8D-F1A3-483E-B3D9-25F40538EF46}
+		{9B834ECE-57EC-4261-A88A-4AABFD67C3BC} = {9B834ECE-57EC-4261-A88A-4AABFD67C3BC}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E0C73EE9-0AC2-4C73-856F-7DB058458338}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juno.OnPrem.Auth.Common", "Common\Juno.OnPrem.Auth.Common\Juno.OnPrem.Auth.Common.csproj", "{9E5D8A8D-F1A3-483E-B3D9-25F40538EF46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B834ECE-57EC-4261-A88A-4AABFD67C3BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B834ECE-57EC-4261-A88A-4AABFD67C3BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B834ECE-57EC-4261-A88A-4AABFD67C3BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B834ECE-57EC-4261-A88A-4AABFD67C3BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3190BBCB-1AC0-4AC5-9C9B-64575E60468C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3190BBCB-1AC0-4AC5-9C9B-64575E60468C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3190BBCB-1AC0-4AC5-9C9B-64575E60468C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3190BBCB-1AC0-4AC5-9C9B-64575E60468C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3190BBCB-1AC0-4AC5-9C9B-64575E60468C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3190BBCB-1AC0-4AC5-9C9B-64575E60468C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9E5D8A8D-F1A3-483E-B3D9-25F40538EF46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E5D8A8D-F1A3-483E-B3D9-25F40538EF46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E5D8A8D-F1A3-483E-B3D9-25F40538EF46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E5D8A8D-F1A3-483E-B3D9-25F40538EF46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B834ECE-57EC-4261-A88A-4AABFD67C3BC} = {E8B5380E-DAA6-4926-8573-9B47B20B79BD}
+		{3190BBCB-1AC0-4AC5-9C9B-64575E60468C} = {F595ABBE-2189-4740-9C5A-DAB0AF5C6719}
+		{9E5D8A8D-F1A3-483E-B3D9-25F40538EF46} = {E0C73EE9-0AC2-4C73-856F-7DB058458338}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3698F12D-9F46-4ACC-9350-0FE0EEA5F873}
+	EndGlobalSection
+EndGlobal

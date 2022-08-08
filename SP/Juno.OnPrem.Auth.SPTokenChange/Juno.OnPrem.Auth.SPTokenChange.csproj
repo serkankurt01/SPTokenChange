@@ -1,0 +1,137 @@
+﻿<Project ToolsVersion="16.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3190BBCB-1AC0-4AC5-9C9B-64575E60468C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Juno.OnPrem.Auth.SPTokenChange</RootNamespace>
+    <AssemblyName>Juno.OnPrem.Auth.SPTokenChange</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetOfficeVersion>19.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <MinimumOfficeToolsVersion>14.1</MinimumOfficeToolsVersion>
+    <SandboxedSolution>False</SandboxedSolution>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADMIN\SPTokenChangeAdmin\Setup.aspx.cs">
+      <DependentUpon>Setup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\SPTokenChangeAdmin\Setup.aspx.designer.cs">
+      <DependentUpon>Setup.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\SPTokenChangeAdmin\ConfigCache.aspx.cs">
+      <DependentUpon>ConfigCache.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\SPTokenChangeAdmin\ConfigCache.aspx.designer.cs">
+      <DependentUpon>ConfigCache.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ADMIN\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ca97451d-42b9-4e7f-b1da-a2611010707c}</SharePointProjectItemId>
+    </None>
+    <None Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap-grid.css.map" />
+    <None Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap-grid.min.css.map" />
+    <None Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap-reboot.css.map" />
+    <None Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <None Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap.css.map" />
+    <None Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\js\bootstrap.bundle.js.map" />
+    <None Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <None Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\js\bootstrap.js.map" />
+    <None Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\js\bootstrap.min.js.map" />
+    <None Include="app.config" />
+    <None Include="Features\Juno.OnPrem.Auth.CentralAdminLinks\Juno.OnPrem.Auth.CentralAdminLinks.feature">
+      <FeatureId>{ac841706-2ce8-4414-8035-0360d249f474}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Modules\CentralAdminLinks\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f80acd4c-d994-474c-9b55-0553598be772}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{1904da9a-617b-4ddf-bd36-5b50651b6013}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Juno.OnPrem.Auth.Common\Juno.OnPrem.Auth.Common.csproj">
+      <Project>{9E5D8A8D-F1A3-483E-B3D9-25F40538EF46}</Project>
+      <Name>Juno.OnPrem.Auth.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap.css" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\js\bootstrap.js" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\images\authentication.png" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\jquery-3.6.0.min.js" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\assets\main.js" />
+    <Content Include="Features\Juno.OnPrem.Auth.CentralAdminLinks\Juno.OnPrem.Auth.CentralAdminLinks.Template.xml">
+      <DependentUpon>Juno.OnPrem.Auth.CentralAdminLinks.feature</DependentUpon>
+    </Content>
+    <Content Include="ADMIN\SPTokenChangeAdmin\Setup.aspx" />
+    <Content Include="ADMIN\SPTokenChangeAdmin\ConfigCache.aspx" />
+    <Content Include="Modules\CentralAdminLinks\Elements.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+
+  <CustomActionGroup
+    Id="SPTokenChangeGroup"
+    Location="Microsoft.SharePoint.Administration.Security"
+    Sequence="100"
+    Title="Juno Token Change"
+    Description="V"
+    ImageUrl="/_admin/sptokenchangeadmin/assets/images/authentication.png">
+    <UrlAction Url="/_admin/sptokenchangeadmin/setup.aspx"/>
+  </CustomActionGroup>
+  <CustomAction
+  Id="SPTokenChangeSetup"
+  GroupId="SPTokenChangeGroup"
+  Location="Microsoft.SharePoint.Administration.Security"
+  Title="Setup"
+  Description="">
+    <UrlAction Url="/_admin/sptokenchangeadmin/setup.aspx"/>
+  </CustomAction>
+
+</Elements>
