@@ -1,5 +1,8 @@
 ## ADFS/Azure JWT Token For SharePoint On-Premises RestApi
 
+> Note: English translation will come soon
+
+
 Azure veya ADFS üzerinden aldığınız Access Token ile SharePoint REST Apilerine istek yapabilmenize olanak sağlayan bir uygulamadır. 
 
 SharePoint’e ait özelliklerden bir tanesi olan REST Api alt yapısını kullarak uygulama içerisindeki içeriklere erişme ihtiyacı doğmuştur. Bu noktada SharePoint’e dışarıdan erişim için sağlayabilmek için aşağıdaki gibi bir çok Authentication seçeneği bulunmaktadır.  
