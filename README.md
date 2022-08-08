@@ -12,6 +12,7 @@ SharePoint’e ait özelliklerden bir tanesi olan REST Api alt yapısını kulla
 Bu seçeneklerin her biri tek başına ihtiyacı karşılamamaktadır. Bu yüzden bu dokümanında atlattığı gibi bu seçenklerin bir kombinasyonu ile ihtiyacımız olan erişim seçeneğine ulaşmış olacağız.  
 Yapılan kurguda iki farklı token mekanizması bulunmaktadır. Birinci ADFS tarafında yönetilen Access Token süreci diğeri ise SharePoint içerisinde yönetilen OAuth2 Access Token sürecidir. 
 
+[![N|Solid](http://www.serkan-kurt.com.tr/blog/wp-content/uploads/2022/08/sptokenchange.png)]
 
 Söz konusu çalışmayı sağlayabilmek için bir HTTP Module oluşturulmuştur.  Bu module ADFS ile SharePoint arasıda bir köprü görevi görmektedir.  Süreç özet olarak aşağıdaki şekilde ilerlemektedir.  
 
@@ -70,7 +71,7 @@ c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccou
 JUNO-ADFSConfigs -name "JunoTest6" -urn "urn:sharepoint:junowebtest6" -spWebUrl "https://jnn6.contoso.com" 
 
 ```
-
+[![N|Solid](http://www.serkan-kurt.com.tr/blog/wp-content/uploads/2022/08/adfs-output.png)]
 > Note: Yukarıdaki Script çalıştırıldıktan sonra ekranda çıkan parametrelerin not alınması gerekmektedir. 
 
 
@@ -132,7 +133,7 @@ JUNO-SPConfigs -clientAppName "JunoOpenIDConnect" -spWebUrl "https://jnn6.contos
 "
 
 ```
-
+[![N|Solid](http://www.serkan-kurt.com.tr/blog/wp-content/uploads/2022/08/sp-output.png)]
 
 Parametre Açıklamaları
 - clientAppName 
@@ -145,10 +146,10 @@ Parametre Açıklamaları
 
 ### Client Application Yetkilendirme
 Powershell scripti çalıştırıldığıda ilgili web application altında bir uygulama oluşturacak ve Client ID bilgisi powershell ekranında görünecektir. 
-{image}
+
 Buradaki Client ID bilgisi kopyalandıktan sonra aşağıdaki “Central Admin” adresine girilmeli ve açılan sayfadaki bilgiler doldurularak “Create” butonuna tıklanmalıdır. http://{centraladminurl}/_layouts/15/appinv.aspx
 
-
+[![N|Solid](http://www.serkan-kurt.com.tr/blog/wp-content/uploads/2022/08/appinv.png)]
 
 Parametre Açıklamaları
 - App Id
@@ -171,14 +172,20 @@ Parametre Açıklamaları
     ```
 “Create” butonuna tıkladıktan sonra çıkan ektanda bulunan “Trust It” butonuna tıklanmalıdır. 
 
+[![N|Solid](http://www.serkan-kurt.com.tr/blog/wp-content/uploads/2022/08/appint-trust.png)]
+
 
 ### SPTokenChange Konfigürasyonları
 
 Tüm powershell scriptleri çalıştırıldıktan sonra repoda bulunan SharePoint projesi indirilerek WSP paketi oluşturulur.  Daha sonra ilgili wsp paketi farma deploy edilir.  
 
+[![N|Solid](http://www.serkan-kurt.com.tr/blog/wp-content/uploads/2022/08/central-admin.png)]
+
 Deploy işlemi tamamlandıktan sonra Central Administration -> Security altında “Juno Token Change” isminde yeni bir menu oluşacaktır. “Setup” linkine tıklayarak ilgili konfigürasyon ekranlarına ulaşılır.
 
 Açılan sayfada üst bölümde bulunan web application seçim ekranından kullanılacak olan web application seçilir ve “Deploy” butonuna tıklanır.  Tıklama sonrası “Installede Applications” altında ki listeye ilgili web application eklenir. 
+
+[![N|Solid](http://www.serkan-kurt.com.tr/blog/wp-content/uploads/2022/08/sptokenchange-admin.png)]
 
  Buradaki içerikler yukarıda çalıştırılan scriptler sonucu not alınan parametrelere göre doldurulurak Save butonuna tıklanır. 
  
@@ -209,8 +216,8 @@ Parametre Açıklamaları:
     - SharePoint Konfigürasyonları sonuçu ekranda oluşan bilgilendirme notları içerisindeki “SP Realm” seçeneği yazılmalıdır.  
 
 - Auth Provider Name
-    - Web tarafına ADFS ile giriş yapılacak ise “trusted:LDAPCP”,
-    - Web tarafında Azure ile giriş yapılacak ise “trusted:AzureCP”
+    - Web tarafına ADFS ile giriş yapılacak ise trusted provider name yazılmalıdır. Örneğin; “trusted:LDAPCP”,
+    - Web tarafında Azure ile giriş yapılacakise trusted provider name yazılmalıdır. Örneğin; “trusted:AzureCP”
     - Web tarafına NTML ile giriş yapılacak ise boş bırakılmalıdır. 
 - Certifiate Path
     - SharePoint Konfigürasyonları adımında kullanılan sertifikaya ait PFX dosyasının path bilgisi
